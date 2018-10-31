@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+
+  <html lang=es>
+    <head>
+	  <title> Principal </title>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  <link rel="stylesheet" href="{% static 'css/Estilo.css' %}">
+	  
+
+	  <!-- Bootstrap Core CSS -->
+	  <link href="{% static 'css/log/bootstrap.min.css' %}" rel="stylesheet">
+	
+	  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	  
+    </head>
+
+	
+    <body >
+		
+	 <div id=first>
+	 <div class="content-logo">		
+		<header>
+			<img src='{% static "img/logo.png" %}' alt=logo>
+			<div>
+					<nav id="siteNav" role="navigation">
+                        <h4>Usuario Loggeado actualmente: <em>{{ user.get_username }}</em></h4> 
+
+                    </nav>
+							<div class="container">
+								<!-- Logo and responsive toggle -->
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								
+								</div>
+								<!-- Navbar links -->
+								<div class="collapse navbar-collapse" id="navbar">
+									<ul class="nav navbar-nav navbar-right">
+											{% if user.is_authenticated %}
+											<li>
+													<a href="{% url 'auth_password_change' %}">  Cambiar password </a>
+											</li>
+		
+											<li>
+													<a href=http://127.0.0.1:8000/admin/blog/mascota/add>Agregar perro</a>
+											</li>
+											<li>
+													<a href="{% url 'auth_logout' %}">Desconectar</a> 
+											</li>
+											<li>
+													<a href="/Registro">Registrar</a> 
+											</li>
+											<li style="color:black;">
+												<a href="/Mascota" style="color:blue">Mascotas</a>
+											</li>
+											{% else %}
+											{% endif %}
+										<li class="active">
+											<a href="http://127.0.0.1:8000/Base" style="color:black;">Home</a>
+										</li >
+									
+										{% if user.is_authenticated %}
+                            
+										{% else %}
+										<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:black;">Sesión <span class="caret"></span></a>
+												<ul class="dropdown-menu" aria-labelledby="about-us">
+													<li><a href=/accounts/login>Login Administrativo</a></li>
+												</ul>
+											</li>
+										{% endif %}
+										
+										<li>
+											<a href="http://127.0.0.1:8000/Contacto.html" style="color:black;">Contact</a>
+										</li>
+									</ul>
+									
+								</div><!-- /.navbar-collapse -->
+							</div><!-- /.container -->
+						</nav>
+			</div>
+	
+			
+			 
+		</header>		
+	 </div>
+
+		<div class="carousel carousel-slider">
+
+					<a class="carousel-item" href="#one!"  ><img src='{% static "img/1.jpg" %}' alt=one></a>
+					<a class="carousel-item" href="#two!" ><img src='{% static "img/22.jpg" %}'    alt=two ></a>
+					<a class="carousel-item" href="#three!" ><img src='{% static "img/23.jpg" %}'  alt=tree></a>
+					<a class="carousel-item" href="#four!" ><img src='{% static "img/4.jpg" %}'  alt=four></a>
+						
+		</div>		
+		
+		<div id="apDiv1">
+			
+			<table id=tabla1>
+			<tr>
+			<td><a href="https://www.facebook.com/Mis-Perris-231483944378539/?modal=admin_todo_tour"> <img src='{% static "img/fb.png" %}' alt=fe></a></td>
+			
+			<td><a href="https://plus.google.com/+Gmail"><img src='{% static "img/gmail.png" %}' alt=plus></a></td>
+			
+			<td><a href="https://www.instagram.com/mis_perris_prueba/"><img src='{% static "img/instagram.png" %}' alt=insta></a></td>
+			
+			<td><a href="https://www.google.com/gmail/"><img src='{% static "img/msg.png" %}' alt=gmp></a></td>
+			</tr>
+		</table>
+        </div>
+	</div>
+	<br>
+	<div id=second>
+	
+		<div id=iz>
+		<p id=res> RESCATE </p>
+		<br><br><br>
+		<p id=etapa > ETAPA UNO </p>
+		<br><br>
+		
+		<br>
+		<hr id=linea2 style="color: #0056b2;" />
+		<br>
+		<p id=rescate> Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos y los preparamos para buscarles un hogar.</p>
+		<img id=rescat src='{% static "img/rescate.jpg" %}'  alt=resct >
+		</div>
+	
+		
+
+		<div id=der >
+			<img id=crowfu src='{% static "img/crowfunding.jpg" %}' alt=Crow> 
+			<div id=bajoimg>
+			<p id=crow>CROWDFUNDING</p>
+			<br><br><br>
+			
+			<p id=financia> FINANCIAMIENTO </p>
+			<br><br><br>
+		    <hr id=linea style="color: #0056b2"/> 
+			</div>	
+				
+			  <p class=margen style="margin:-70%"></p>
+			  
+			
+			 <p id=fina > Sigue nuestras redes sociales para informarte acerca de las diversas campañas y actividades que realizamos para obtener financiamiento para seguir ayudando. </p>
+			<a href="/Campania" class="botoncito">CAMPAÑAS</a>
+			
+		</div>
+	</div>
+	
+	
+	<div id=galeria>
+			
+			<table>
+			<tr>
+			<td><a href="Atacamita.html"><img id=perro5 src='{% static "img/5.jpg" %}' alt=ata></a></td>
+			
+			<td><a href="Okon.html"><img id=perro6 src='{% static "img/6.jpg" %}' alt=oko></a></td>
+			</tr>
+			</table>
+			
+			<br>
+			
+			<table>
+			<tr>
+			
+			<td><a href="Marlene.html"><img id=perro7 src='{% static "img/7.jpg" %}' alt=marle></a></td>
+			
+			<td><a href="Afortunado.html"><img id=perro8 src='{% static "img/8.jpg" %}' alt=afor></a></td>
+			</tr>
+			</table>
+	</div>
+        
+	<footer>
+	<h5> Desarrollo Web y Mobile </h5>
+	</footer>    
+      <!--JavaScript at end of body for optimized loading-->
+    <!-- jQuery -->
+   		 <script src="{% static 'js/lg/jquery-1.11.3.min.js' %}"></script>
+    <!-- Bootstrap Core JavaScript -->
+   		 <script src="{% static 'js/lg/bootstrap.min.js' %}"></script>
+    <!-- Custom Javascript -->
+    	<script src="{% static 'js/lg/custom.js' %}"></script>
+        <script  src='{% static "js/jquery-3.3.1.min.js" %}'></script>
+		<script  src='{% static "js/materialize.min.js" %}'></script>
+
+	
+
+
+
+		<script>$(document).ready(function(){
+				$('.carousel').carousel(
+				{
+					duration:500,
+					dist:50,
+					shift:50,
+					padding:100,
+					fullwidth:true,
+					
+				}
+				);
+		});</script>
+
+    </body>
+  </html>

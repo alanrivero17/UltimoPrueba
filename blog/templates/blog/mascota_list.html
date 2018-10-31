@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+	<title> Django mi sitio</title>
+
+	<!-- Bootstrap Core CSS -->
+
+	<link href="{% static 'css/log/custom.css' %}" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/log/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/log/custom.css' %}" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        
+</head>
+<body background="{% static 'img/fondo2.png' %}">
+	<header>
+		<nav id="siteNav" class="navbar navbar-default navbar-fixed-top" role="navigation" >
+			<div class="container">
+				<!-- Logo and responsive toggle -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+						<span class="sr-only">Toggle navigation</span>
+						
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#" style="color:black;">
+						<span class="glyphicon glyphicon-fire"></span> 
+						Mis Perris
+					</a>
+				</div>
+				<!-- Navbar links -->
+				<div class="collapse navbar-collapse" id="navbar"></div>
+					<ul class="nav navbar-nav navbar-right">
+							{% if user.is_authenticated %}
+							
+							<li>
+									<a href="{% url 'auth_password_change' %}" style="color:blue">  Cambiar Contraseña </a>
+							</li>
+	
+							<li>
+									<a href=http://127.0.0.1:8000/admin/blog/mascota/add style="color:blue">Agregar perro</a>
+							</li>
+							<li>
+									<a href="{% url 'auth_logout' %}" style="color:blue">Desconectar</a> 
+							</li>
+							<li>
+									<a href=http://127.0.0.1:8000/admin  style="color:blue">Sitio Admin</a>      
+							</li>
+
+							
+										
+							{% endif %}
+							
+							<li class="active">
+									<a href="/Base" sylte="color:black"> Home</a>
+							</li>
+		
+						{% if user.is_authenticated %}
+						
+						{% else %}
+						
+						<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:black;">Services <span class="caret"></span></a>
+								<ul class="dropdown-menu" aria-labelledby="about-us">
+									<li><a href="/accounts/login" style="color:black;">Login Administrativo</a></li>
+									
+									
+								</ul>
+							</li>
+						{% endif %}
+						<li>
+							<a href="Contacto.html" style="color:black;">Contact</a>
+						</li>
+					</ul>
+					
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container -->
+			<div>
+					<a ><h1>Lista de Perros</h1></a>
+				<table class="table table-bordered" style="border: solid 1px #000000; " >
+					<thead>
+					<div >
+						<tr style="color:#000000";>
+							<td>Nombre</td>
+							
+							<td>Raza</td>
+							<td>Descripcion</td>
+							<td>Estado</td>
+						</tr>
+						</div>
+					</thead>
+		
+					<tbody>	
+					<div style="color:#000000";>
+						{% for mascota in mascotas %}
+							<tr style="color:#000000";>
+								<td>{{ mascota.nombre}}</td>
+								
+								<td>{{ mascota.raza}}</td>
+								<td>{{ mascota.descripcion}}</td>
+								<td>{{ mascota.estado}}</td>
+							</tr>
+						{% endfor %}
+						</div>
+					</tbody>
+				
+		
+				</table> 
+			</div>
+		</nav>
+		
+	</header>
+	
+	
+	
+</body>
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/materialize.min.js' %}"></script>
+</html>
